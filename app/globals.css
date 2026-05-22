@@ -1,11 +1,10 @@
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@tailwind base;
+/* Removed @custom-variant dark (&:is(.dark *)); as it is not supported */
 
-@custom-variant dark (&:is(.dark *));
-@tailwind components;
-@tailwind utilities;
+/* @tailwind utilities; removed because it's not recognized in this setup */
 
 @theme inline {
     --font-heading: var(--font-sans);

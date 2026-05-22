@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.78",
+    "@ai-sdk/react": "^3.0.190",
     "@base-ui/react": "^1.5.0",
     "@langchain/core": "^1.1.47",
     "@langchain/google-genai": "^2.1.31",
