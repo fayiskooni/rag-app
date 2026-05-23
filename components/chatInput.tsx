@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 const ChatInput = () => {
   return (
     <div className="flex gap-0.5 text-white w-[700] bg-[#1e1f20] p-3 rounded-4xl">
+    <div className="flex gap-0.5 text-white w-[700] bg-[#1e1f20] p-3 rounded-4xl"></div>
       <Button
         variant="ghost"
         size="icon"
