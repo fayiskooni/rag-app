@@ -1,31 +1,45 @@
 "use client";
 
+import { useState } from "react";
 import { Plus, Send } from "lucide-react";
 import { Button } from "./ui/button";
 
-const ChatInput = () => {
+type ChatInputProps = {
+  onSend: (input: string) => void;
+};
+
+const ChatInput = ({ onSend }: ChatInputProps) => {
+  const [input, setInput] = useState("");
+
+  const handleSend = () => {
+    if (!input.trim()) return;
+
+    onSend(input);
+
+    // clear input after send
+    setInput("");
+  };
+
   return (
-    <div className="flex gap-0.5 text-white w-[700] bg-[#1e1f20] p-3 rounded-4xl">
-    <div className="flex gap-0.5 text-white w-[700] bg-[#1e1f20] p-3 rounded-4xl"></div>
-      <Button
-        variant="ghost"
-        size="icon"
-        className="rounded-full hover:bg-[#2d2d2d]"
-      >
-        <Plus className="w-8 h-8 text-gray-200" />
+    <div className="flex gap-1 text-white w-175 bg-[#1e1f20] p-3 rounded-4xl">
+      <Button variant="ghost" size="icon" className="rounded-full">
+        <Plus />
       </Button>
 
       <input
-        placeholder="text anything.."
-        className="flex-1 bg-transparent px-4 text-xl text-white outline-none placeholder:text-gray-400"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSend();
+          }
+        }}
+        placeholder="text anything..."
+        className="flex-1 bg-transparent px-4 text-xl outline-none"
       />
 
-      <Button
-        variant="ghost"
-        size="icon"
-        className="rounded-full hover:bg-[#2d2d2d]"
-      >
-        <Send className="w-8 h-8 text-gray-200" />
+      <Button onClick={handleSend} variant="ghost" size="icon">
+        <Send />
       </Button>
     </div>
   );
